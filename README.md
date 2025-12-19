@@ -13,11 +13,6 @@ Examenreposicion/
 ├── parameters.env
 ├── composer.json
 ├── nav.config.json
-├── docker-compose.yml
-├── Dockerfile
-├── docs/
-│   └── scripts/
-│       └── empleados.sql
 └── src/
     ├── Utilities/
     │   ├── Site.php
@@ -50,3 +45,15 @@ Examenreposicion/
                 ├── editar.view.tpl
                 └── ver.view.tpl
 ```
+
+## Entorno de ejecución
+- Versión de PHP: 7.4 (entorno requerido por el framework)
+- Kit de iconos: Font Awesome (`7a07bf48b2`)
+- Base de datos: `examenreposicion`
+
+## Acceso a la aplicación
+- Lista de empleados: `index.php?page=Empleados_Listar`
+- Crear empleado: `index.php?page=Empleados_Crear`
+- Editar empleado: `index.php?page=Empleados_Editar&empleado_id={id}`
+- Ver detalle: `index.php?page=Empleados_Ver&empleado_id={id}`
+- Eliminar: `index.php?page=Empleados_Eliminar&empleado_id={id}`
