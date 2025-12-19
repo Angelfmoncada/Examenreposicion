@@ -1,33 +1,46 @@
 <section>
+  <div align="center">
   <h2>Editar Empleado</h2>
   {{if generalError}}
-    <div class="error">{{generalError}}</div>
+    <div>{{generalError}}</div>
   {{endif generalError}}
   <form action="index.php?page=Empleados_Editar" method="POST">
     <input type="hidden" name="empleado_id" value="{{empleado_id}}" />
-    <div class="form_row">
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" name="nombre" value="{{nombre}}" />
-      {{if errorNombre}}<span class="error">{{errorNombre}}</span>{{endif errorNombre}}
-    </div>
-    <div class="form_row">
-      <label for="puesto">Puesto</label>
-      <input type="text" id="puesto" name="puesto" value="{{puesto}}" />
-      {{if errorPuesto}}<span class="error">{{errorPuesto}}</span>{{endif errorPuesto}}
-    </div>
-    <div class="form_row">
-      <label for="salario">Salario</label>
-      <input type="number" step="0.01" id="salario" name="salario" value="{{salario}}" />
-      {{if errorSalario}}<span class="error">{{errorSalario}}</span>{{endif errorSalario}}
-    </div>
-    <div class="form_row">
-      <label for="activo">Activo</label>
-      <input type="checkbox" id="activo" name="activo" {{if activo}}checked{{endif activo}} />
-    </div>
-    <div class="form_row">
-      <button type="submit">Actualizar</button>
-      <a href="index.php?page=Empleados_Listar">Cancelar</a>
-    </div>
+    <fieldset>
+      <table border="0" cellpadding="6" cellspacing="0">
+        <tr>
+          <td><label for="nombre">Nombre</label></td>
+          <td>
+            <input type="text" id="nombre" name="nombre" value="{{nombre}}" />
+            {{if errorNombre}}<small>{{errorNombre}}</small>{{endif errorNombre}}
+          </td>
+        </tr>
+        <tr>
+          <td><label for="puesto">Puesto</label></td>
+          <td>
+            <input type="text" id="puesto" name="puesto" value="{{puesto}}" />
+            {{if errorPuesto}}<small>{{errorPuesto}}</small>{{endif errorPuesto}}
+          </td>
+        </tr>
+        <tr>
+          <td><label for="salario">Salario</label></td>
+          <td>
+            <input type="number" step="0.01" id="salario" name="salario" value="{{salario}}" />
+            {{if errorSalario}}<small>{{errorSalario}}</small>{{endif errorSalario}}
+          </td>
+        </tr>
+        <tr>
+          <td><label for="activo">Activo</label></td>
+          <td><input type="checkbox" id="activo" name="activo" {{if activo}}checked{{endif activo}} /></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right">
+            <button type="submit">Actualizar</button>
+            <a href="index.php?page=Empleados_Listar">Cancelar</a>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
   </form>
+  </div>
 </section>
-
