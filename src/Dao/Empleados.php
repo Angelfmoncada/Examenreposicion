@@ -59,5 +59,10 @@ class Empleados extends Table
             )
         );
     }
+    public static function deleteEmpleado(int $empleado_id)
+    {
+        $sqldel = "DELETE FROM empleados WHERE empleado_id = :empleado_id";
+        return self::executeNonQuery($sqldel, array("empleado_id" => $empleado_id));
+    }
 }
 
