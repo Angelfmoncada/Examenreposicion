@@ -9,6 +9,20 @@ class Empleados extends Table
         $sqlstr = "SELECT empleado_id, nombre, puesto, salario, activo FROM empleados";
         return self::obtenerRegistros($sqlstr, array());
     }
+    public static function addEmpleado($nombre, $puesto, $salario, $activo)
+    {
+        $sqlins = "INSERT INTO empleados (nombre, puesto, salario, activo)
+                   VALUES (:nombre, :puesto, :salario, :activo)";
+        return self::executeNonQuery(
+            $sqlins,
+            array(
+                "nombre" => $nombre,
+                "puesto" => $puesto,
+                "salario" => $salario,
+                "activo" => $activo ? 1 : 0
+            )
+        );
+    }
     public static function getCount()
     {
         $sqlstr = "SELECT COUNT(1) AS total FROM empleados";
