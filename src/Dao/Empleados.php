@@ -35,5 +35,29 @@ class Empleados extends Table
         $sqlstr = "SELECT empleado_id, nombre, puesto, salario, activo FROM empleados LIMIT :limit OFFSET :offset";
         return self::obtenerRegistros($sqlstr, array("limit" => $itemsPerPage, "offset" => $offset));
     }
+    public static function getById(int $empleado_id)
+    {
+        $sqlstr = "SELECT empleado_id, nombre, puesto, salario, activo FROM empleados WHERE empleado_id = :empleado_id";
+        return self::obtenerUnRegistro($sqlstr, array("empleado_id" => $empleado_id));
+    }
+    public static function updateEmpleado($empleado_id, $nombre, $puesto, $salario, $activo)
+    {
+        $sqlupd = "UPDATE empleados
+                   SET nombre = :nombre,
+                       puesto = :puesto,
+                       salario = :salario,
+                       activo = :activo
+                   WHERE empleado_id = :empleado_id";
+        return self::executeNonQuery(
+            $sqlupd,
+            array(
+                "empleado_id" => $empleado_id,
+                "nombre" => $nombre,
+                "puesto" => $puesto,
+                "salario" => $salario,
+                "activo" => $activo ? 1 : 0
+            )
+        );
+    }
 }
 
