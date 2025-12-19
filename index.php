@@ -16,6 +16,7 @@ use Utilities\Site;
 
 require __DIR__ . '/vendor/autoload.php';
 session_start();
+header('Content-Type: text/html; charset=utf-8');
 
 try {
     Site::configure();
